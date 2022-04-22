@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import '@vime/core/themes/default.css';
 
 import { ApiService } from '../service/api.service';
+import { Video } from '../video/video';
 
 @Component({
   selector: 'app-view-video',
@@ -10,15 +11,20 @@ import { ApiService } from '../service/api.service';
 })
 export class ViewVideoComponent implements OnInit {
 
+  videoDetail: any;
+
+  hlsConfig = {
+    crossOrigin: ""
+  }
+
   constructor(private apiService: ApiService) { 
   }
 
   ngOnInit(): void {
-    console.log(this.apiService.getGreeting());
-  }
-
-  tempVideoDetails = {
-    id: 1,
-    title: "Test Video Title"
+    let response = this.apiService.getVideoDetails('138623c8-de19-4c68-b230-a9b8a0e8c616');
+    response.subscribe(data => {
+      this.videoDetail = data[0];
+      console.log(this.videoDetail);
+    });
   }
 }

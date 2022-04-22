@@ -1,1 +1,6 @@
+com/example/restservice/Greeting.class
 com/example/restservice/RestServiceApplication.class
+com/example/restservice/video/Video.class
+com/example/restservice/video/VideoRepository.class
+com/example/restservice/video/VideoController.class
+com/example/restservice/GreetingController.class

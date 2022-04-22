@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { ViewVideoComponent } from './view-video/view-video.component';
 import { ApiService } from './service/api.service';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { VimeModule } from '@vime/angular';
 
 @NgModule({
@@ -20,7 +22,8 @@ import { VimeModule } from '@vime/angular';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    VimeModule
+    VimeModule,
+    MatToolbarModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

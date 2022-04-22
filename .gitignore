@@ -28,3 +28,9 @@ hs_err_pid*
 # Docker Stuff
 .env
 db/data
+
+#Java
+.idea
+
+video_tests/
+api/src/main/resources/application.properties
