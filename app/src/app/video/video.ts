@@ -1,10 +1,15 @@
 export class Video {
-    id?: String;
-    videoTitle?: String;
+    id: String;
+    videoTitle: String;
     videoDesc?: String;
     uploadedBy?: String;
     views?: Number;
-    uploadTime?: String;
+    uploadDate?: String;
     videoURL?: String;
     videoThumb?: String;
+
+    constructor(id: string, videoTitle: string){
+        this.id = id;
+        this.videoTitle = videoTitle;
+    }
 }

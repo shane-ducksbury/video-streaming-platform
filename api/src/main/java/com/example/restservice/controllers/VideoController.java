@@ -1,10 +1,14 @@
 package com.example.restservice.controllers;
 
+import com.example.restservice.resources.UploadedVideo;
 import com.example.restservice.resources.VideoWithURL;
 import com.example.restservice.repositories.VideoRepository;
 import com.example.restservice.resources.Video;
+import com.example.restservice.services.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +21,9 @@ public class VideoController {
 
     @Autowired
     private VideoRepository videoRepository;
+
+    @Autowired
+    private StorageService storageService;
 
     @CrossOrigin(origins = "*")
     @GetMapping("/")
@@ -49,5 +56,28 @@ public class VideoController {
             });
         }
         return videoWithURL;
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping("/upload")
+    public ResponseEntity<List<Video>> uploadVideo(
+            @RequestParam(value = "file") MultipartFile file,
+            @RequestParam(value = "videoTitle") String videoTitle,
+            @RequestParam(value = "videoDesc") String videoDesc,
+            @RequestParam(value = "uploadedBy") String uploadedBy
+    ){
+        try {
+            UUID newVideoId = storageService.uploadFile(file);
+            Video newVideo = new Video(newVideoId, videoTitle, videoDesc, uploadedBy);
+
+            videoRepository.saveAndFlush(newVideo);
+
+            List<Video> resp = new ArrayList<>();
+            resp.add(newVideo);
+
+            return ResponseEntity.ok(resp);
+        } catch (Exception e){
+            return ResponseEntity.internalServerError().build();
+        }
     }
 }

@@ -26,6 +26,15 @@ public class Video {
     private Instant uploadTime;
     private int views;
 
+    public Video(UUID id, String videoTitle, String videoDesc, String uploadedBy) {
+        this.id = id;
+        this.videoTitle = videoTitle;
+        this.videoDesc = videoDesc;
+        this.uploadedBy = uploadedBy;
+        this.views = 0;
+        this.uploadTime = Instant.now();
+    }
+
     public Video(String videoTitle, String videoDesc, String uploadedBy) {
         this.id = UUID.randomUUID();
         this.videoTitle = videoTitle;

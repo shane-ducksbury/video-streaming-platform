@@ -1,0 +1,18 @@
+<main fxLayout="column">
+    <h1 class="mat-h1">Upload a video</h1>
+    <p>Upload is very much in beta. Files must be in .mp4 format, cannot exceed 500MB, and will not be transcoded from their original resolution.</p>
+    <form [formGroup]="videoDetailForm" fxLayout="column">
+        <label>Video Title:</label>
+        <input type="text" formControlName="videoTitle" placeholder="Video Title">
+        <label>Video Description:</label>
+        <input type="text" formControlName="videoDesc" placeholder="Video Description">
+    </form>
+    <input style="display: none" type="file" (change)="onFileSelected($event)" accept=".mp4" #fileInput>
+    <button mat-flat-button (click)="fileInput.click()">Select File</button>
+    <p *ngIf="selectedFile">Selected File: {{selectedFile.name}}</p>
+    <button *ngIf="uploadComplete == true" mat-flat-button color="primary" type="button" (click)="onUpload()">Upload</button>
+    <div *ngIf="uploadComplete == false" class="upload-progress">
+        <p>Upload Progress:</p>
+        <mat-progress-bar mode="determinate" value="{{uploadProgress}}"></mat-progress-bar>
+    </div>
+</main>
