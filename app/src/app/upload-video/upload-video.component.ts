@@ -18,8 +18,8 @@ export class UploadVideoComponent implements OnInit {
 
   constructor(private apiService: ApiService, private formBuilder: FormBuilder) {
     this.videoDetailForm = this.formBuilder.group({
-      videoTitle: 'Video Title',
-      videoDesc: 'Video Description',
+      videoTitle: '',
+      videoDesc: '',
     })
   }
 

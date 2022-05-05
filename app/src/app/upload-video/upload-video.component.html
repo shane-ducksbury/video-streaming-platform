@@ -2,10 +2,14 @@
     <h1 class="mat-h1">Upload a video</h1>
     <p>Upload is very much in beta. Files must be in .mp4 format, cannot exceed 500MB, and will not be transcoded from their original resolution.</p>
     <form [formGroup]="videoDetailForm" fxLayout="column">
-        <label>Video Title:</label>
-        <input type="text" formControlName="videoTitle" placeholder="Video Title">
-        <label>Video Description:</label>
-        <input type="text" formControlName="videoDesc" placeholder="Video Description">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Video Title:</mat-label>
+            <input matInput type="text" formControlName="videoTitle">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Video Description:</mat-label>
+            <input matInput type="text" formControlName="videoDesc">
+        </mat-form-field>
     </form>
     <input style="display: none" type="file" (change)="onFileSelected($event)" accept=".mp4" #fileInput>
     <button mat-flat-button (click)="fileInput.click()">Select File</button>

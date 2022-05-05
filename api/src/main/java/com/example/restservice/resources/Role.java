@@ -1,4 +1,4 @@
-package com.example.restservice.resources;
-
-public class Role {
-}
+//package com.example.restservice.resources;
+//
+//public class Role {
+//}
