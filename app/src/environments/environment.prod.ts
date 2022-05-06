@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiAddress: 'https://cryptic-earth-49293.herokuapp.com'
 };

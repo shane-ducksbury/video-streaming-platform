@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { AuthService } from './auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { AuthService } from './auth.service';
 
 export class ApiService {
 
-  apiUrl: string = 'http://localhost:8080';
+  apiUrl: string = environment.apiAddress;
   apiSuffix: string = '/api/v1'
 
   headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');

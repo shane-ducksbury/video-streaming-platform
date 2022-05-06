@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor() { }
 
-  apiKey: BehaviorSubject<string> = new BehaviorSubject('ValidApiKey');
+  apiKey: BehaviorSubject<string> = new BehaviorSubject('');
 
   currentApiKey = this.apiKey.asObservable();
 
