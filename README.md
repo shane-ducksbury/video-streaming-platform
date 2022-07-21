@@ -1,4 +1,7 @@
 # Cloud Based Video Streaming Platform
+## Note: This project has been taken down to avoid AWS costs. Contact Shane if you would like a code walkthrough.
+
+
 This is a project built for Emerging Production Techniques.
 It uses Angular + Typescript, Java + Spring Boot connected with AWS to create a cloud based streaming platform.
 
