@@ -25,6 +25,7 @@
 hs_err_pid*
 
 application.yml
+application.properties
 
 # Javscript Stuff
 
